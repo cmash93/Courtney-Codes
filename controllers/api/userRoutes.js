@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
-const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
     try {
@@ -61,10 +60,10 @@ router.post('/', async (req, res) => {
             req.session.username = userData.username;
             req.session.logged_in = true;
 
-            res.status(200).json({message: 'Successfully created new user'})
+            res.status(200).json(userData)
         })
     } catch (err) {
-        res.status(500).json(err)
+        res.status(400).json(err)
     }
 });
 
@@ -75,14 +74,14 @@ router.post('/login', async (req, res) => {
         })
 
         if(!userData) {
-            res.status(404).json({message:'Username not found'});
+            res.status(400).json({message:'Incorrect username or password. Please try again.'});
             return;
         }
 
         const checkPassword = await userData.checkPassword(req.body.password);
 
         if(!checkPassword) {
-            res.status(404).json({message: 'Incorrect password. Please try again.'});
+            res.status(400).json({message: 'Incorrect username or password. Please try again.'});
             return;
         }
         
@@ -94,20 +93,20 @@ router.post('/login', async (req, res) => {
             res.status(200).json({user: userData, message: 'You are now logged in!'})
         })
     } catch (err) {
-        res.status(500).json(err)
+        res.status(400).json(err)
     }
 });
 
 router.post('/logout', async (req, res) => {
     try {
         if (req.session.logged_in) {
-            const userData = await req.session.destroy(() => {
+            await req.session.destroy(() => {
                 res.status(204).end();
             })
         } else {
             res.status(404).end();
         }
     } catch (err) {
-        res.status(500).end();
+        res.status(400).end();
     }
 });
