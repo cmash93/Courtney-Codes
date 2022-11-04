@@ -16,9 +16,13 @@ User.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        full_name: {
+        username: {
             type: DataTypes.STRING,
             allowNull: false,
+        },
+        github: {
+            type: DataTypes.STRING,
+            allowNull: true
         },
         email: {
             type: DataTypes.STRING,
