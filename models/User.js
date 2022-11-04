@@ -20,10 +20,6 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        github: {
-            type: DataTypes.STRING,
-            allowNull: true
-        },
         email: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -31,6 +27,10 @@ User.init(
             validate: {
                 isEmail: true,
             },
+        },
+        github: {
+            type: DataTypes.STRING,
+            allowNull: true
         },
         password: {
             type: DataTypes.STRING,
