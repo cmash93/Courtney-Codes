@@ -1,11 +1,19 @@
 # Courtney-Codes
 
-Config ✔️    
-Controllers     
+Config ✔️
+
+Controllers  ✔️   
+
 DB ✔️    
+
 Models ✔️    
-Public    
+
 Seeds ✔️    
+
+Public    
+
 Utils    
+
 Views    
-Server    
+
+Server ✔️    
