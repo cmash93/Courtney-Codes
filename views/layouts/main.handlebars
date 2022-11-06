@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courtney Codes</title>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="../public/css/style.css">
+</head>
+
+<body>
+    <header>
+        <hero>
+            <img src="./logo.png" alt="multi-colored tech lines" class="logo">
+            <h1 class="title">&lt;caffeine-and-coding&gt;</h1>
+        </hero>
+
+        <nav>
+            {{#if logged_in}}
+            <a href="/">HOME</a>
+            <a href="/dashboard">DASHBOARD</a>
+            <a href="/dashboard/create/">CREATE</a>
+            {{!-- add logout to homeRoutes --}}
+            <button id="logout">LOGOUT</button>
+
+            {{else}}
+            <a href="/">HOME</a>
+            <a href="/login">LOGIN</a>
+            {{/if}}
+        </nav>
+    </header>
+
+    <main>
+        {{{body}}}
+    </main>
+
+    <footer>
+        {{!-- create later --}}
+    </footer>
+</body>
+</html>
