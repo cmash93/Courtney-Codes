@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courtney Codes</title>
-    {{!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> --}}
+    <title>Caffeine && Coding</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
     <script src="https://kit.fontawesome.com/0aa93583c3.js" crossorigin="anonymous"></script>
 </head>
@@ -15,19 +14,22 @@
     <header>
         <hero>
             <img src="/images/logo.png" alt="multi-colored tech lines" class="logo">
-            <h1 class="title">&lt;caffeine-and-coding&gt;</h1>
+            <h1 class="title">(caffeine && coding)</h1>
         </hero>
 
         <nav>
             {{#if logged_in}}
-            <a href="/">HOME</a>
-            <a href="/dashboard">DASHBOARD</a>
-            <a href="/dashboard/create/">CREATE</a>
-            {{!-- add logout to homeRoutes --}}
+            <a href="/">HOME</a> 
+            <p>|</p>
+            <a href="/dashboard">DASHBOARD</a> 
+            <p>|</p>
+            <a href="/dashboard/create/">CREATE</a> 
+            <p>|</p>
             <button id="logout">LOGOUT</button>
 
             {{else}}
-            <a href="/">HOME</a>
+            <a href="/">HOME</a> 
+            <p>|</p>
             <a href="/login">LOGIN</a>
             {{/if}}
         </nav>
@@ -41,4 +43,7 @@
         {{!-- create later --}}
     </footer>
 </body>
+{{#if logged_in}}
+<script src="/javascript/logout.js"></script>
+{{/if}}
 </html>

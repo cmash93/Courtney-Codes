@@ -9,6 +9,6 @@
 
 {{> comments post.comments}}
 
-{{!-- {{#if logged_in}} --}}
-{{!-- script here --}}
-{{!-- {{/if}} --}}
+{{#if logged_in}}
+<script src="/javascript/comment.js"></script>
+{{/if}}

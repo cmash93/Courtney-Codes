@@ -51,9 +51,11 @@ nav {
 }
 
 
-a {
-    font-size: 1.5rem;
-    list-style: none;
+a,
+p {
+    color: #26204e;
+    font-size: 1.6rem;
+    text-decoration: none;
     margin-left: 2rem;
     margin-right: 2rem;
     margin-top: 1.3rem;
