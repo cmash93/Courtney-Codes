@@ -1,15 +1,16 @@
 <div class="card">
     <div class="card-header">
-    <a href="" class="card-title">{{title}}</a>
+        <a href="" class="card-title">{{title}}</a>
     </div>
 
     <div class="card-content">
-    <p class="content">{{post_body}}</p>
+        <p class="content">{{post_body}}</p>
     </div>
 
     <div class="card-footer">
-    <a href="https://github.com/{{user.github}}"><i class="GITHUB-ICON"></i></a>
-    <!-- HANDLEBARS DATE -->
-    <a href="'/post/{{id}}">{{comments.length}}</a>
+        <b>{{user.username}}</b>   |
+        <a href="https://github.com/{{user.github}}" class="github-icon"><i class="fa-brands fa-github"></i></a> |   
+        {{format_date date_created}} |
+        <a href="/post/{{id}}">{{comments.length}} Comments</a>
     </div>
 </div>

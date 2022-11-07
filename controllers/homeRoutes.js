@@ -65,18 +65,9 @@ router.get('/signup', async (req, res) => {
 });
 
 
-router.get('/posts/:id', async (req, res) => {
+router.get('/post/:id', async (req, res) => {
     try {
-
-    } catch (err) {
-        res.status(500).json(err)
-    }
-});
-
-
-router.get('/comments', async (req, res) => {
-    try {
-        const singlePost = await Post.findByPk({
+        const singlePost = await Post.findOne({
             where: {
                 id: req.params.id
             },
