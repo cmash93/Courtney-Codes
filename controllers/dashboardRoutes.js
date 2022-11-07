@@ -7,7 +7,7 @@ router.get('/', withAuth, async (req, res) => {
     try {
         const postData = await Post.findAll({
             where: {
-                user_id: req.params.user_id
+                user_id: req.session.user_id
             },
             attributes: ['id', 'title', 'post_body', 'date_created'],
             include: [
@@ -103,7 +103,7 @@ router.get('/create', withAuth, async (req, res) => {
         const newPost = createPost.map((post) => post.get({ plain: true }));
 
         res.render('create-post', {
-            posts,
+            newPost,
             logged_in: req.session.logged_in
         })
 
