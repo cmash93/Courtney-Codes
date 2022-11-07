@@ -4,7 +4,7 @@ const createPost = async (event) => {
     const title = document.querySelector('input[name="post-title"]').value;
     const postBody = document.querySelector('input[name="post-body"]').value;
 
-    const response = await fetch('api/posts', {
+    const response = await fetch('/api/posts', {
         method: 'POST',
         body: JSON.stringify({
             title,

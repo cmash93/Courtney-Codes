@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
             ]
         });
 
-        const posts = postData.map((post) => post.get({ plain: true }));
+        const posts = postData.map(post => post.get({ plain: true }));
 
         res.render('homepage', {
             posts,
@@ -42,7 +42,7 @@ router.get('/login', async (req, res) => {
         return;
     }
 
-    res.render('login')
+    res.render('login');
 
 });
 
@@ -54,7 +54,7 @@ router.get('/signup', async (req, res) => {
         return;
     }
 
-    res.render('signup')
+    res.render('signup');
     
 });
 
@@ -83,7 +83,8 @@ router.get('/post/:id', async (req, res) => {
         });
 
         if (!singlePost) {
-            res.status(404).json({message: "No post found!"})
+            res.status(404).json({message: "No post found!"});
+            return;
         }
 
         const post = singlePost.get({ plain: true });

@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../../models');
+const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -43,7 +44,7 @@ router.get('/:id', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['username']
+                    attributes: ['username', 'github']
                 },
                 {
                     model: Comment,
@@ -53,7 +54,7 @@ router.get('/:id', async (req, res) => {
                     include: [
                         {
                             model: User,
-                            attributes: ['username']
+                            attributes: ['username', 'github']
                         }
                     ]
                 }
@@ -75,7 +76,7 @@ router.get('/:id', async (req, res) => {
 router.post('/', withAuth, async (req, res) => {
     try {
         const postData = await Post.create({
-            title: req.params.title,
+            title: req.body.title,
             post_body: req.body.post_body,
             user_id: req.session.user_id
         });

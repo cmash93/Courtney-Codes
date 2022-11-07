@@ -54,11 +54,17 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        const userData = await User.create(req.body);
+        const userData = await User.create({
+            username: req.body.username,
+            github: req.body.github,
+            email: req.body.email,
+            password: req.body.password
+        });
         
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.username = userData.username;
+            req.session.github = userData.github;
             req.session.logged_in = true;
 
             res.status(200).json(userData)
@@ -81,16 +87,17 @@ router.post('/login', async (req, res) => {
             return;
         }
 
-        const checkPassword = userData.checkPassword(req.body.password);
+        const validPassword = await userData.checkPassword(req.body.password);
 
-        if(!checkPassword) {
+        if(!validPassword) {
             res.status(400).json({message: 'Incorrect username or password. Please try again.'});
             return;
         }
         
         req.session.save(() => {
             req.session.user_id = userData.id;
-            req.session.username = userData.username;
+            // req.session.username = userData.username;
+            // req.session.github = userData.github;
             req.session.logged_in = true;
 
             res.status(200).json({user: userData, message: 'You are now logged in!'})
@@ -101,7 +108,6 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/logout', (req, res) => {
-    try {
         if (req.session.logged_in) {
             req.session.destroy(() => {
                 res.status(204).end();
@@ -109,9 +115,7 @@ router.post('/logout', (req, res) => {
         } else {
             res.status(404).end();
         }
-    } catch (err) {
-        res.status(400).end();
-    }
+
 });
 
 module.exports = router;

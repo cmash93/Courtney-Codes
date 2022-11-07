@@ -5,7 +5,7 @@ const withAuth = require('../../utils/auth');
 // 
 router.get('/', async (req, res) => {
     try {
-        const commentData = await Comment.findAll({});
+        const commentData = await Comment.findAll();
 
         if(!commentData) {
             res.status(404).json({message: 'No comments available'});
@@ -43,17 +43,19 @@ router.get('/:id', async (req, res) => {
 //
 router.post('/', withAuth, async (req, res) => {
     try {
-        const commentData = await Comment.create({
-            comment_body: req.body.comment_body,
-            post_id: req.body.post_id,
-            user_id: req.session.user_id
-        });
+        if (req.session) {
+            const commentData = await Comment.create({
+                comment_body: req.body.comment_body,
+                post_id: req.body.post_id,
+                user_id: req.session.user_id
+            });
 
-        res.status(200).json(commentData)
-    
+            res.status(200).json(commentData)
+        }
     } catch (err) {
         res.status(500).json(err);
     }
+    
 });
 
 //

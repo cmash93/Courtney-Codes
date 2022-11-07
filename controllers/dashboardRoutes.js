@@ -26,7 +26,7 @@ router.get('/', withAuth, async (req, res) => {
             ]
         });
 
-        const posts = postData.map((post) => post.get({ plain: true }));
+        const posts = postData.map(post => post.get({ plain: true }));
 
         res.render('dashboard', {
             posts,
@@ -40,7 +40,7 @@ router.get('/', withAuth, async (req, res) => {
 
 router.get('/edit/:id', withAuth, async (req, res) => {
     try {
-        const updatedPost = await Post.findByPk({
+        const updatedPost = await Post.findOne({
             where: {
                 id: req.params.id
             },
@@ -62,7 +62,8 @@ router.get('/edit/:id', withAuth, async (req, res) => {
         });
 
         if (!updatedPost) {
-            res.status(404).json({message: "No post found!"})
+            res.status(404).json({message: "No post found!"});
+            return;
         }
 
         const post = updatedPost.get({ plain: true });
@@ -100,7 +101,7 @@ router.get('/create', withAuth, async (req, res) => {
             ]
         })
 
-        const newPost = createPost.map((post) => post.get({ plain: true }));
+        const newPost = createPost.map(post => post.get({ plain: true }));
 
         res.render('create-post', {
             newPost,
