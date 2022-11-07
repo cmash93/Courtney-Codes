@@ -2,11 +2,8 @@
 
 {{#if logged_in}}
 <form class="new-comment">
-        <div class="add-comment">
-            <label for="add-comment">Comment:</label>
-            <input type="text" id="add-comment" />
-        </div>
-        <button type="submit" class="btn comment-btn">Send</button>
+    <textarea class="comment-body" name="comment-body"></textarea>
+    <button class="btn comment-btn" type="submit">Add Comment</button>
 </form>
 {{/if}}
 
