@@ -22,4 +22,4 @@ const createPost = async (event) => {
     }
 }
 
-document.querySelector('.create-post').addEventListener('submit', createPost);
+document.querySelector('.create-form').addEventListener('submit', createPost);
