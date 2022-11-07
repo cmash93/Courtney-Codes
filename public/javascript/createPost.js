@@ -1,6 +1,6 @@
 const createPost = async (event) => {
     event.preventDefault();
-    
+
     const title = document.querySelector('input[name="post-title"]').value;
     const postBody = document.querySelector('input[name="post-body"]').value;
 
@@ -22,4 +22,4 @@ const createPost = async (event) => {
     }
 }
 
-document.querySelector('.edit-post').addEventListener('submit', createPost);
+document.querySelector('.create-post').addEventListener('submit', createPost);

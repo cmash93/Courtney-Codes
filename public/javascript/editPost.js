@@ -3,9 +3,9 @@ const editPost = async (event) => {
     
     const title = document.querySelector('input[name="post-title"]').value;
     const postBody = document.querySelector('input[name="post-body"]').value;
-    const postId = window.location.toString().split('/')[window.location.toString().split('/').length - 1];
+    const id = window.location.toString().split('/')[window.location.toString().split('/').length - 1];
 
-    const response = await fetch(`api/posts/${postId}`, {
+    const response = await fetch(`api/posts/${id}`, {
         method: 'PUT',
         body: JSON.stringify({
             title,
