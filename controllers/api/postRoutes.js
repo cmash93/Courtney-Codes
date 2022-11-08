@@ -77,10 +77,11 @@ router.post('/', withAuth, async (req, res) => {
     try {
         const postData = await Post.create({
             title: req.body.title,
-            post_body: req.body.post_body,
+            post_body: req.body.postBody,
             user_id: req.session.user_id
         });
-
+        console.log(req.body)
+        console.log(req.session.user_id)
         res.status(200).json(postData)
     
     } catch (err) {
