@@ -80,8 +80,7 @@ router.post('/', withAuth, async (req, res) => {
             post_body: req.body.postBody,
             user_id: req.session.user_id
         });
-        console.log(req.body)
-        console.log(req.session.user_id)
+        
         res.status(200).json(postData)
     
     } catch (err) {
@@ -120,7 +119,6 @@ router.delete('/:id', withAuth, async (req, res) => {
         const postData = await Post.destroy({
             where: {
                 id: req.params.id,
-                user_id: req.session.user_id
             }
         });
 
