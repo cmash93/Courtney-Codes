@@ -93,7 +93,7 @@ router.put('/:id', withAuth, async (req, res) => {
         const postData = await Post.update(
             {
                 title: req.body.title,
-                post_body: req.body.post_body
+                post_body: req.body.postBody
             },
             {
                 where: {
@@ -103,7 +103,7 @@ router.put('/:id', withAuth, async (req, res) => {
         );
 
         if (!postData) {
-            res.status(404).json({message: 'No post found'});
+            res.status(404).json({message: 'No post with that id found'});
             return;
         }
 

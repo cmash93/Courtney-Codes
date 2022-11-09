@@ -5,7 +5,7 @@ const editPost = async (event) => {
     const postBody = document.querySelector('input[name="post-body"]').value;
     const id = window.location.toString().split('/')[window.location.toString().split('/').length - 1];
 
-    const response = await fetch(`api/posts/${id}`, {
+    const response = await fetch(`/api/posts/${id}`, {
         method: 'PUT',
         body: JSON.stringify({
             title,
@@ -15,7 +15,6 @@ const editPost = async (event) => {
             'Content-Type': 'application/json'
         }
     });
-
     if (response.ok) {
         document.location.replace('/dashboard');
     } else {
