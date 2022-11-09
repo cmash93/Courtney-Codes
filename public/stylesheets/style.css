@@ -1,62 +1,64 @@
-html {
-    font-size: 68.5%;
-}
 
 body {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(215, 215, 215);
+    background: url(../images/logo.png);
+    background-size: 44.5rem;
+    background-position: top;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-
-.title {
-    font-family: monospace;
-    font-size: 4rem;
-    font-weight: 700;
-    position: absolute;
-    color: #4c4292;
-    background-color: rgb(244, 244, 244, .6);
-    line-height: .8;
-    box-shadow: 0rem 0rem 2rem rgb(244, 244, 244);
+    font-size: 1.6rem;
+    height: 100vh;
 }
 
 hero {
     height: 15rem;
-    width: 100vw;
-    background-color: rgb(247, 248, 252);
+    background:transparent;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    top: -1rem;
-    left: -1rem;
 }
 
-.logo {
-    height: 23rem;
-    width: auto;
-    position: absolute;
+.navbar {
+    height: 4rem;
+    margin-left: auto;
 }
 
-nav {
-    height: 5rem;
-    width: 101vw;
-    background-color: rgb(234, 234, 238);
-    position: relative;
-    top: -2rem;
-    left: -1rem;
-    box-shadow: 0rem .2rem .5rem rgb(204, 204, 204);
+.navbar-nav {
     display: flex;
-    flex-direction: row;
-    justify-content:center;
+    align-items: center;
+}
+
+.title {
+    font-family: monospace;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #4c4292;
+    background-color: rgb(244, 244, 244, .6);
+    line-height: .8;
+    box-shadow: 0rem 0rem 2rem rgb(244, 244, 244);
+    margin-top: 4.5rem;
+}
+
+.img {
+    background-size: 20rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 12rem;
+    width: auto;
 }
 
 
 a,
 p {
     color: #26204e;
-    font-size: 1.6rem;
     text-decoration: none;
-    margin-left: 2rem;
-    margin-right: 2rem;
-    margin-top: 1.3rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 2rem;
+}
+
+.card {
+    margin-top: 2rem;
 }
