@@ -51,7 +51,8 @@ hero {
 
 
 a,
-p {
+p,
+button {
     color: #26204e;
     text-decoration: none;
     margin-left: 1rem;
